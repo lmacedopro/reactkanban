@@ -81,12 +81,14 @@ export default function Card({ data, index, listIndex }) {
   dragRef(dropRef(ref));
 
   return (
-    <Container ref={ref} isDragging={isDragging} priority={data.priority}>
+    <Container ref={ref} isDragging={isDragging} priority={data.priority} list={listIndex}>
       <header>
         {data.labels.map( label => <Label key={label} color={label} /> )} 
-        <button type='button' title="Remover Tarefa">
-          <MdRemoveCircle size={18} color="#7109C2" />
-        </button>
+        {listIndex === 0 && 
+          <button type='button' title="Remover Tarefa">
+            <MdRemoveCircle size={18} color="#7109C2" />
+          </button>
+        }
       </header>
       <p>{data.content}</p>
       {data.user && <img src={data.user} alt="" />}
