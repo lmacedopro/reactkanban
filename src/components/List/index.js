@@ -1,24 +1,19 @@
-import React, { useRef, useContext } from 'react';
+import React, { useRef } from 'react';
 import { useDrop } from 'react-dnd';
 
-import BoardContext from '../Board/context';
-
 import { MdAdd } from 'react-icons/md';
+
 import { Container } from './styles';
 
 import Card from '../Card';
 
 export default function List({ data, index: listIndex }) {
   const ref = useRef();
-  const { moveEnd } = useContext(BoardContext);
 
-  const [{ canDrop, isOver }, drop] = useDrop({
+  const [, drop] = useDrop({
     accept: 'CARD',
     drop: () => ({ listIndex }),
-    collect: monitor => ({
-      isOver: monitor.isOver(),
-      canDrop: monitor.canDrop(),
-    }),
+    collect: monitor => ({}),
   })
 
   drop(ref)
@@ -28,9 +23,9 @@ export default function List({ data, index: listIndex }) {
       <header>
         <h2>{data.title}</h2>
         {data.creatable && (
-          <button type="button">
-            <MdAdd size={24} color="#FFF" />
-          </button>
+            <button className="btadd" type="button">
+              <MdAdd size={18} color="#FFF" />
+            </button>
         )}     
       </header>
 

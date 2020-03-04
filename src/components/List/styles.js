@@ -23,16 +23,16 @@ export const Container = styled.div`
     padding: 0 10px;
   }
 
-  button{
-    width: 42px;
-    height: 42px;
-    border-radius: 18px;
+  .btadd{
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
     background: #7109C2;
     border: 0;
 
   }
 
-  button:active{
+  .btadd:active{
     background: #7311FF;
   }
 

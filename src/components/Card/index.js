@@ -1,9 +1,12 @@
 import React, { useRef, useContext } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
 
+import { MdRemoveCircle } from 'react-icons/md';
+
 import BoardContext from '../Board/context';
 
 import { Container, Label } from './styles';
+
 
 export default function Card({ data, index, listIndex }) {
 
@@ -30,6 +33,9 @@ export default function Card({ data, index, listIndex }) {
         return;
       }else{
         moveEnd(draggedListIndex, targetListIndex, draggedIndex);
+
+        item.index = draggedIndex;
+        item.listIndex = targetListIndex;
       }
       
     },
@@ -42,9 +48,6 @@ export default function Card({ data, index, listIndex }) {
     accept: 'CARD',
     hover(item, monitor){
 
-      //const teste = monitor.didDrop()
-
-      //console.log(teste);
       const draggedListIndex = item.listIndex;
       const targetListIndex = listIndex;
 
@@ -78,10 +81,12 @@ export default function Card({ data, index, listIndex }) {
   dragRef(dropRef(ref));
 
   return (
-    <Container ref={ref} isDragging={isDragging} >
+    <Container ref={ref} isDragging={isDragging} priority={data.priority}>
       <header>
-        {data.labels.map( label => <Label color="#B90303" key={label} color={label} />)}
-        
+        {data.labels.map( label => <Label key={label} color={label} /> )} 
+        <button type='button' title="Remover Tarefa">
+          <MdRemoveCircle size={18} color="#7109C2" />
+        </button>
       </header>
       <p>{data.content}</p>
       {data.user && <img src={data.user} alt="" />}

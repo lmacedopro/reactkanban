@@ -1,29 +1,49 @@
 import styled, { css } from 'styled-components';
 
+const handleBgColorPriorty = priority => {
+  switch (priority) {
+    case "veryurgent":
+      return "#ecc5c5";
+    case "urgent":
+      return "#dbe39f";
+    default:
+      return "#c1dff0";
+  }
+};
+
 export const Container = styled.div`
-  position: relative;
-  background: #FFF;
+  display: flex;
+  flex-wrap: wrap;
+  background: ${({ priority }) => handleBgColorPriorty(priority)};
   border-radius: 5px;
   margin-bottom: 10px;
-  padding: 15px;
+  padding: 0 15px 15px 15px;
   box-shadow: 0 1px 4px 0 rgba(192, 208, 230, 0.8);
-  border-top: 20px solid rgba(230, 236, 245, 0.6);
   cursor: grab;
 
   header{
-    position: absolute; 
-    top: -22px;
-    left: 15px;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  button{
+    display: flex;
+    align-items: center;
+    border: 0;
+    background: transparent;
   }
 
   p{
+    width: 100%;
+    font-size: 0.8rem;
+    padding-bottom: 10px;
     font-weight: 500;
     line-height: 20px;
   }
 
   img{
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
     border-radius: 2px;
   }
 
@@ -45,6 +65,5 @@ export const Label = styled.span`
   width: 10px;
   height: 10px;
   border-radius: 2px;
-  display: inline-block;
   background: ${props => props.color};
 `;
