@@ -72,6 +72,7 @@ export default function Card({ data, index, listIndex }) {
       
       move(draggedListIndex, targetListIndex, draggedIndex, targetIndex);
 
+      //chamar funcao que procura no banco os cards e atualiza o campo listid e index conforme a troca
       item.index = targetIndex;
       item.listIndex = targetListIndex;
 
