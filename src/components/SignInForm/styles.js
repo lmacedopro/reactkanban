@@ -10,6 +10,7 @@ export const Container = styled.div`
     border: 1px solid rgba(30, 30, 30, 0.2);
     border-radius: 6px;
     flex-direction: row;
+    background: #fff;
 
     .signup{
         display: flex;

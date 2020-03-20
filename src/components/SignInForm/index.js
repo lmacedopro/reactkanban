@@ -46,7 +46,7 @@ class SignInForm extends Component {
                     placeholder="Senha"
                     onChange={e => this.setState({ password: e.target.value })}
                 />
-                <div class="submit">
+                <div className="submit">
                     <button type="submit">Entrar</button>
                     <Link to="/forgot">Esqueci minha Senha</Link>
                 </div>
@@ -54,7 +54,7 @@ class SignInForm extends Component {
           </div>
           <div className="signup">
               <p>Ainda não possui uma conta? Não perca tempo. </p>
-            <Link to="/signup">Crie sua conta grátis</Link>
+            <Link to="/register">Crie sua conta grátis</Link>
           </div>
       </Container>
     );

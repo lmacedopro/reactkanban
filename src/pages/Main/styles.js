@@ -18,10 +18,9 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
-  }
-
-  header img{
-    opacity: 0.5;
+    & img{
+      opacity: 0.6;
+    }
   }
 
   content{
